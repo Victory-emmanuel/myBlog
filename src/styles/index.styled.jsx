@@ -70,9 +70,7 @@ const StyledNavText = styled(NavLink)`
   color: #343434;
   font-weight: 500;
   transition: 0.2s;
-  //   &.${(props) => props.activeclassname} {
-  //     color: #ef0909;
-  //   }
+
   &:hover {
     color: #ef0909;
   }

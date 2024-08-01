@@ -1,10 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NavBar from "./components/nav2";
+import { NavBar, Footer } from "./components/components";
 import { useEffect, useState } from "react";
 import { AllBlog, Blog, BlogInfo, HomePage, NoPage } from "./pages/blog/routes";
-import { AdminLogin, Dashboard } from "./pages/blogAdmin/routes";
+import { AdminLogin, CreateBlog, Dashboard } from "./pages/blogAdmin/routes";
 import { Toaster } from "react-hot-toast";
 function App() {
+  //Theme changer........
   const [theme, setTheme] = useState("light");
   const element = document.documentElement;
 
@@ -28,13 +29,14 @@ function App() {
         break;
     }
   }, [element.classList, theme]);
+  //.....................
   return (
     <>
       <BrowserRouter>
         <div className="app relative dark:bg-secondary  duration-100">
           <div
             id=""
-            className="fixed lg:top-5 lg:right-10 xs:top-[45px] xs:right-[90px]  xx:top-[21px] xx:right-[60px]  z-20  duration-100  bg-transparent rounded"
+            className="fixed lg:top-5 lg:right-10 xs:top-[45px] md:top-[25px] xs:right-[90px]  xx:top-[21px] xx:right-[60px]  z-20  duration-100  bg-transparent rounded"
           >
             {options?.map((opt) => (
               <button
@@ -57,9 +59,11 @@ function App() {
             <Route path="/*" element={<NoPage />} />
             <Route path="/adminLogin" element={<AdminLogin />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/createBlog" element={<CreateBlog />} />
           </Routes>
         </div>
         <Toaster />
+        <Footer />
       </BrowserRouter>
     </>
   );

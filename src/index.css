@@ -204,3 +204,15 @@ svg {
   border-top: 2px solid #fff;
   border-right: 2px solid #fff;
 }
+
+/* ////////create Blog////// */
+
+pre {
+  border-radius: 8px;
+  background: #3a3a3a !important;
+  color: #fff !important;
+  scroll-padding-top: 20px;
+  overflow-x: scroll;
+  padding: 15px;
+  margin-bottom: 15px;
+}

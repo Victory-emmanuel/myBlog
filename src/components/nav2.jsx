@@ -12,7 +12,7 @@ import {
   DropdownItem,
 } from "../styles/index.styled";
 import { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
@@ -80,7 +80,7 @@ const NavBar = () => {
 
   return (
     <>
-      <NavWrapper id="nav" className="px-12 py-2 drop-shadow-md">
+      <NavWrapper id="nav" className="px-12 py-2 drop-shadow-md relative">
         <div>
           <NavLink to="/" onClick={closeMenu}>
             <Logo className="w-[11rem]" src={logo} />
@@ -91,12 +91,12 @@ const NavBar = () => {
         </div>
         {active ? (
           <IoCloseOutline
-            className="md:hidden xx:block absolute sm:top-[50px] sm:right-[30px] ss:top-[45px] ss:right-[30px] xs:top-[50px] xs:right-[30px] xx:top-[30px] xx:right-[20px] xx:text-[1.4rem] xs:text-[2rem] text-accent"
+            className="md:hidden block absolute sm:top-[50px] sm:right-[30px] ss:top-[45px] ss:right-[30px] xs:top-[50px] xs:right-[30px] xx:top-[30px] xx:right-[20px] xx:text-[1.4rem] xs:text-[2rem] text-accent"
             onClick={() => setActive(!active)}
           />
         ) : (
           <CiMenuFries
-            className="md:hidden xx:block absolute sm:top-[50px] sm:right-[30px] ss:top-[45px] ss:right-[30px] xs:top-[50px] xs:right-[30px] xx:top-[30px] xx:right-[20px] xx:text-[1.4rem] xs:text-[2rem] text-accent"
+            className="md:hidden block absolute sm:top-[50px] sm:right-[30px] ss:top-[45px] ss:right-[30px] xs:top-[50px] xs:right-[30px] xx:top-[30px] xx:right-[20px] xx:text-[1.4rem] xs:text-[2rem] text-accent"
             onClick={() => setActive(!active)}
           />
         )}
@@ -147,6 +147,13 @@ const NavBar = () => {
             </div>
           ))}
         </NavWrapperLink>
+        <div className="">
+          <button className="w-[9rem] fixed right-[-17rem] top-0 py-5 px-7  bg-white h-[3rem] my-3 mr-[25rem] flex items-center rounded-xl cursor-pointer  overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:text-white before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-accent before:to-lightAccent before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#343434]">
+            <Link to="/adminLogin">
+              <span className=" text-sm">Admin Login</span>
+            </Link>
+          </button>
+        </div>
       </NavWrapper>
     </>
   );
