@@ -1,17 +1,69 @@
 import { Editor } from "@tinymce/tinymce-react";
 import { useState } from "react";
 import "./admin.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import toast from "react-hot-toast";
+import { fireDb, storage } from "../../firebase/firebaseConfig"; // Ensure proper import of storage
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const CreateBlog = () => {
-  const [blogs, setBlogs] = useState("");
-  const [thumbnail, setThumbnail] = useState();
+  const [blogs, setBlogs] = useState({
+    title: "",
+    category: "",
+    content: "",
+    time: Timestamp.now(),
+  });
+  const [thumbnail, setThumbnail] = useState(null); // Initialize as null
   const [text, setText] = useState("");
-  console.log(blogs);
+  const navigate = useNavigate();
+
+  const addPost = async () => {
+    if (!blogs.title || !blogs.category || !blogs.content || !thumbnail) {
+      return toast.error("Please fill all fields");
+    }
+    await uploadImage();
+  };
+
+  const uploadImage = async () => {
+    if (!thumbnail) {
+      return;
+    }
+    const imageRef = ref(storage, `blogImage/${thumbnail.name}`);
+    uploadBytes(imageRef, thumbnail)
+      .then((snapshot) => {
+        getDownloadURL(snapshot.ref).then((url) => {
+          const productRef = collection(fireDb, "blogPost");
+          try {
+            addDoc(productRef, {
+              ...blogs,
+              thumbnail: url,
+              time: Timestamp.now(),
+              date: new Date().toLocaleString("en-US", {
+                month: "short",
+                day: "2-digit",
+                year: "numeric",
+              }),
+            });
+            navigate("/dashboard");
+            toast.success("Post added successfully");
+          } catch (error) {
+            toast.error("Error adding post");
+            console.error("Error adding document: ", error);
+          }
+        });
+      })
+      .catch((error) => {
+        toast.error("Error uploading image");
+        console.error("Error uploading image: ", error);
+      });
+  };
+
   // create markup function
   function createMarkup(c) {
     return { __html: c };
   }
+
   return (
     <div className="container h-full mx-auto max-w-5xl py-6">
       {/* main content */}
@@ -20,7 +72,7 @@ const CreateBlog = () => {
         {thumbnail && (
           <img
             className="w-full rounded-md mb-4"
-            src={thumbnail ? URL.createObjectURL(thumbnail) : ""}
+            src={URL.createObjectURL(thumbnail)}
             alt="thumbnail"
           />
         )}
@@ -34,31 +86,35 @@ const CreateBlog = () => {
           onChange={(e) => setThumbnail(e.target.files[0])}
         />
       </div>
-      {/* second thumbnail input */}
+      {/* second title input */}
       <div className="mb-4">
         <input
           type="text"
           name="title"
           label="Enter Your Title"
           placeholder="Enter Your Title"
-          className="shadow-lg outline-none w-full rounded-md p-2 "
+          className="shadow-lg outline-none w-full rounded-md p-2"
+          value={blogs.title}
+          onChange={(e) => setBlogs({ ...blogs, title: e.target.value })}
         />
       </div>
-      {/* third thumbnail input */}
+      {/* third category input */}
       <div className="mb-4">
         <input
           type="text"
           name="category"
           label="Enter Your Category"
           placeholder="Enter Your Category"
-          className="shadow-lg outline-none w-full rounded-md p-2 "
+          className="shadow-lg outline-none w-full rounded-md p-2"
+          value={blogs.category}
+          onChange={(e) => setBlogs({ ...blogs, category: e.target.value })}
         />
       </div>
       {/* Editor */}
       <Editor
         apiKey="bgnk85t8d876lhweju63i4v4k0rfjuqn85no8pr4b31n0l2t"
         onEditorChange={(newValue, editor) => {
-          setBlogs({ blogs, content: newValue });
+          setBlogs({ ...blogs, content: newValue });
           setText(editor.getContent({ format: "text" }));
         }}
         onInit={(evt, editor) => {
@@ -110,7 +166,10 @@ const CreateBlog = () => {
       />
       {/* Submit */}
       <Link>
-        <button className="bg-accent px-8 py-4 my-6 rounded-lg text-primary font-semibold">
+        <button
+          onClick={addPost}
+          className="bg-accent px-8 py-4 my-6 rounded-lg text-primary font-semibold"
+        >
           Submit
         </button>
       </Link>
