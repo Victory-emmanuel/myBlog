@@ -5,6 +5,8 @@ import { AllBlog, Blog, BlogInfo, HomePage, NoPage } from "./pages/blog/routes";
 import { AdminLogin, CreateBlog, Dashboard } from "./pages/blogAdmin/routes";
 import { Toaster } from "react-hot-toast";
 import MyState from "./context/data/myState";
+import NavBar from "./components/nav2";
+import Footer from "./components/footer";
 function App() {
   //Theme changer........
   const [theme, setTheme] = useState("light");
@@ -52,17 +54,18 @@ function App() {
                 </button>
               ))}
             </div>
-
+            <NavBar />
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/allBlog" element={<AllBlog />} />
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blogInfo/:id" element={<BlogInfo />} />
+              <Route path="/blogInfo/:title" element={<BlogInfo />} />
               <Route path="/*" element={<NoPage />} />
               <Route path="/adminLogin" element={<AdminLogin />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/createBlog" element={<CreateBlog />} />
             </Routes>
+            <Footer />
           </div>
           <Toaster />
         </BrowserRouter>

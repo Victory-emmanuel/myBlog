@@ -71,8 +71,7 @@ const Dashboard = () => {
                   <>
                     {getAllBlog.map((item, index) => {
                       console.log(item);
-                      const { thumbnail, date, title, category, content } =
-                        item;
+                      const { thumbnail, date, title, category } = item;
                       return (
                         <tbody key={index} className="bg-white">
                           <tr className="text-gray-700">

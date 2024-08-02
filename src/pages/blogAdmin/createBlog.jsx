@@ -10,16 +10,24 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 const CreateBlog = () => {
   const [blogs, setBlogs] = useState({
     title: "",
+    description: "",
     category: "",
     content: "",
     time: Timestamp.now(),
   });
   const [thumbnail, setThumbnail] = useState(null); // Initialize as null
   const [text, setText] = useState("");
+  console.log(text);
   const navigate = useNavigate();
 
   const addPost = async () => {
-    if (!blogs.title || !blogs.category || !blogs.content || !thumbnail) {
+    if (
+      !blogs.title ||
+      !blogs.description ||
+      !blogs.category ||
+      !blogs.content ||
+      !thumbnail
+    ) {
       return toast.error("Please fill all fields");
     }
     await uploadImage();
@@ -96,6 +104,18 @@ const CreateBlog = () => {
           className="shadow-lg outline-none w-full rounded-md p-2"
           value={blogs.title}
           onChange={(e) => setBlogs({ ...blogs, title: e.target.value })}
+        />
+      </div>
+      {/* second description input */}
+      <div className="mb-4">
+        <input
+          type="text"
+          name="description"
+          label="Enter Your description"
+          placeholder="Enter Your description"
+          className="shadow-lg outline-none w-full rounded-md p-2"
+          value={blogs.description}
+          onChange={(e) => setBlogs({ ...blogs, description: e.target.value })}
         />
       </div>
       {/* third category input */}
