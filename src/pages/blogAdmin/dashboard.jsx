@@ -1,5 +1,4 @@
 import { useContext } from "react";
-
 import { Link, useNavigate } from "react-router-dom";
 import MyContext from "../../context/data/myContext";
 
@@ -8,8 +7,8 @@ const Dashboard = () => {
   if (!context) {
     throw new Error("MyContext.Provider is missing");
   }
-  const { getAllBlog } = context;
-  console.log(getAllBlog);
+  const { getAllBlog, deleteBlog } = context;
+  // console.log(getAllBlog);
 
   const navigate = useNavigate();
 
@@ -71,7 +70,7 @@ const Dashboard = () => {
                   <>
                     {getAllBlog.map((item, index) => {
                       console.log(item);
-                      const { thumbnail, date, title, category } = item;
+                      const { thumbnail, date, title, category, id } = item;
                       return (
                         <tbody key={index} className="bg-white">
                           <tr className="text-gray-700">
@@ -103,7 +102,10 @@ const Dashboard = () => {
                             </td>
                             <td className="px-4 py-3 text-sm border">{date}</td>
                             <td className="px-4 py-3  border">
-                              <button className="px-2 py-1 text-base leading-tight font-bold text-red-700 cursor-pointer bg-red-100 rounded-sm">
+                              <button
+                                onClick={() => deleteBlog(id)}
+                                className="px-2 py-1 text-base leading-tight font-bold text-red-700 cursor-pointer bg-red-100 rounded-sm"
+                              >
                                 Delete
                               </button>
                             </td>

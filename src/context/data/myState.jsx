@@ -1,8 +1,16 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import { fireDb } from "../../firebase/firebaseConfig";
 import MyContext from "./myContext";
+import toast from "react-hot-toast";
 
 const MyState = ({ children }) => {
   const [searchKey, setSearchKey] = useState("");
@@ -33,9 +41,27 @@ const MyState = ({ children }) => {
     return () => data && data();
   }, []);
 
+  // delete blog function
+
+  const deleteBlog = async (id) => {
+    try {
+      await deleteDoc(doc(fireDb, "blogPost", id)), getAllBlog();
+      toast.success("Blog deleted successfully");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <MyContext.Provider
-      value={{ searchKey, setSearchKey, isLoading, setIsLoading, getAllBlog }}
+      value={{
+        searchKey,
+        setSearchKey,
+        isLoading,
+        setIsLoading,
+        getAllBlog,
+        deleteBlog,
+      }}
     >
       {children}
     </MyContext.Provider>

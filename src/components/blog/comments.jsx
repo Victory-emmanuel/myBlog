@@ -6,7 +6,7 @@ const Comments = ({
   addComment,
   commentText,
   setCommentText,
-  allComment,
+  allComment,  
   fullName,
   setFullName,
 }) => {
