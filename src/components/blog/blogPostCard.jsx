@@ -27,7 +27,7 @@ function BlogPostCard() {
                       className="bg-primary dark:bg-black rounded-lg overflow-hidden drop-shadow-md "
                     >
                       <img
-                        onClick={() => navigate(`/blogInfo/${title}`)}
+                        onClick={() => navigate(`/blogInfo/${id}`)}
                         className="h-56 w-full object-cover"
                         src={thumbnail}
                         alt=""
@@ -43,7 +43,7 @@ function BlogPostCard() {
                       </div>
 
                       <button
-                        onClick={() => navigate(`/blogInfo/${title}`)}
+                        onClick={() => navigate(`/blogInfo/${id}`)}
                         className="relative xs:m-8 xx:m-4 px-6 py-4 dark:text-primary  text-secondary text-base font-bold nded-full overflow-hidden dark:bg-secondary bg-extraClr rounded-lg transition-all duration-800 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-accent before:to-secondary before:transition-all before:duration-1000 before:ease-in-out before:z-[-1] before:rounded-lg hover:before:left-0"
                       >
                         Read More

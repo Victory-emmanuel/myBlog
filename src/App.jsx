@@ -59,7 +59,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/allBlog" element={<AllBlog />} />
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blogInfo/:title" element={<BlogInfo />} />
+              <Route path="/blogInfo/:id" element={<BlogInfo />} />
               <Route path="/*" element={<NoPage />} />
               <Route path="/adminLogin" element={<AdminLogin />} />
               <Route path="/dashboard" element={<Dashboard />} />
