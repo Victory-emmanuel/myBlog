@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import MyState from "./context/data/myState";
 import NavBar from "./components/nav2";
 import Footer from "./components/footer";
+import Comments from "./components/blog/comments";
 function App() {
   //Theme changer........
   const [theme, setTheme] = useState("light");
@@ -65,6 +66,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/createBlog" element={<CreateBlog />} />
             </Routes>
+
             <Footer />
           </div>
           <Toaster />

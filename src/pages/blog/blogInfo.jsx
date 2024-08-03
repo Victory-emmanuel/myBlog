@@ -2,10 +2,26 @@
 import { useParams } from "react-router-dom";
 import MyContext from "../../context/data/myContext";
 import { useContext, useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  onSnapshot,
+  orderBy,
+  query,
+  Timestamp,
+} from "firebase/firestore";
 import { fireDb } from "../../firebase/firebaseConfig";
 import Loader from "../../components/blog/loader";
+import Comments from "../../components/blog/comments";
+import toast from "react-hot-toast";
 const BlogInfo = () => {
+  const [getBlogs, setGetBlogs] = useState();
+  // comments
+  const [fullName, setFullName] = useState("");
+  const [commentText, setCommentText] = useState("");
+  const [allComment, setAllComment] = useState([]);
   const context = useContext(MyContext);
   if (!context) {
     throw new Error("MyContext.Provider is missing");
@@ -14,7 +30,7 @@ const BlogInfo = () => {
   const params = useParams();
   console.log(params.id);
 
-  const [getBlogs, setGetBlogs] = useState();
+  // blog data
 
   const getAllBlogs = async () => {
     setIsLoading(true);
@@ -34,6 +50,54 @@ const BlogInfo = () => {
   };
   useEffect(() => {
     getAllBlogs();
+  }, []);
+
+  //comments
+  const addComment = async () => {
+    const commentRef = collection(
+      fireDb,
+      "blogPost/" + `${params.id}/` + "comment"
+    );
+    try {
+      await addDoc(commentRef, {
+        fullName,
+        commentText,
+        time: Timestamp.now(),
+        date: new Date().toLocaleString("en-Us", {
+          month: "short",
+          day: "2-digit",
+          year: "numeric",
+        }),
+      });
+      toast.success("Comment Added Successfully");
+      setFullName("");
+      setCommentText("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const getComment = async () => {
+    try {
+      const q = query(
+        collection(fireDb, "blogPost/" + `${params.id}/` + "comment"),
+        orderBy("time")
+      );
+      const data = onSnapshot(q, (QuerySnapshot) => {
+        let productArray = [];
+        QuerySnapshot.forEach((doc) => {
+          productArray.push({ ...doc.data(), id: doc.id });
+        });
+        setAllComment(productArray);
+        console.log(productArray);
+      });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getComment();
   }, []);
 
   // create markup function
@@ -96,6 +160,14 @@ const BlogInfo = () => {
                 </div>
               </div>
             </div>
+            <Comments
+              addComment={addComment}
+              commentText={commentText}
+              setCommentText={setCommentText}
+              allComment={allComment}
+              fullName={fullName}
+              setFullName={setFullName}
+            />
           </div>
         </div>
       </div>
