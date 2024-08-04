@@ -74,6 +74,7 @@ const CreateBlog = () => {
 
   return (
     <div className="container h-full mx-auto max-w-5xl py-6">
+      <h1 className="text-accent font-bold">Create Blog</h1>
       {/* main content */}
       <div className="mb-4">
         {/* thumbnail */}

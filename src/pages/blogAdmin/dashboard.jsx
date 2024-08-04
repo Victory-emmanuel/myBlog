@@ -19,14 +19,16 @@ const Dashboard = () => {
 
   return (
     <div className="ss:px-12 xx:px-6">
-      <div className="grid ss:w-[50%] mx-auto grid-cols-2 bg-extraClr gap-8 shadow-lg rounded-md my-16 ">
+      <div className="grid md:w-[75%] mx-auto grid-cols-2 bg-extraClr gap-8 shadow-lg rounded-md my-16 ">
         <img
           src="https://i.postimg.cc/J7NtsV2v/IMG-20220722-WA0032-01-jpeg.jpg"
           alt=""
           className=" w-56 h-56 rounded-full place-self-center  object-cover"
         />
         <div className="">
-          <h2 className="my-6 font-semibold">Brown Patience</h2>
+          <h2 className="my-6 font-semibold xs:text-2xl sm:text-3xl">
+            Brown Patience
+          </h2>
           <ul className="">
             <li className="font-semibold ">Writer</li>
             <li className="font-semibold ">123@gmail.com</li>
@@ -37,14 +39,14 @@ const Dashboard = () => {
           </ul>
           <div className="my-6 flex gap-4">
             <Link to="/createBlog">
-              <button className="bg-accent px-6 py-4 rounded-lg text-primary font-semibold">
+              <button className="btn-one ss:mt-6 inline-flex  items-center xx:mb-6  justify-center xx:px-5 xx:py-3 xx:mr-0  px-6 py-4 mr-3 xs:text-sm xx:text-xs text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                 Create Blog
               </button>
             </Link>
 
             <button
               onClick={logout}
-              className="bg-accent px-6 py-4 rounded-lg text-primary font-semibold"
+              className="btn-one ss:mt-6 inline-flex  items-center xx:mb-6  justify-center xx:px-5 xx:py-3 xx:mr-0  px-6 py-4 mr-3 xs:text-sm xx:text-xs text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
             >
               Logout
             </button>
@@ -52,10 +54,10 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="grid w-[80%] mx-auto">
-        <section className="container mx-auto p-6 font-mono">
+        <section className="container sm:mx-auto  p-6 ">
           <div className="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-            <div className="w-full overflow-x-auto">
-              <table className="w-full">
+            <div className="w-full mx-auto overflow-x-auto">
+              <table className="w-full mx-auto">
                 <thead>
                   <tr className="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
                     <th className="px-4 py-3">s.No</th>

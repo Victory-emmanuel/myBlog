@@ -18,7 +18,11 @@ const Footer = () => {
           <div className="ss:px-12 xx:px-6 lg:px-28">
             <div className=" m-auto space-y-6 text-secondary dark:text-primary">
               <div className="relative z-1 mb-12">
-                <Link to={"/"} className="" aria-label="logo">
+                <Link
+                  to={"https://the-brown-patience-company.vercel.app"}
+                  className=""
+                  aria-label="logo"
+                >
                   <h3 className="text-accent text-center xx:text-2xl ss:text-4xl ">
                     The Brown Patience Company
                   </h3>
@@ -36,7 +40,7 @@ const Footer = () => {
               <ul className="flex flex-col items-center justify-center gap-4 py-6 sm:flex-row sm:gap-8">
                 <li>
                   <Link
-                    to={"/"}
+                    to={"https://the-brown-patience-company.vercel.app"}
                     className="hover:text-accent dark:text-primary font-bold font-xl"
                   >
                     Home
@@ -44,7 +48,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to={"/editing"}
+                    to={"https://the-brown-patience-company.vercel.app/editing"}
                     className="hover:text-accent dark:text-primary font-bold font-xl"
                   >
                     Services
@@ -52,7 +56,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to={"/about"}
+                    to={"https://the-brown-patience-company.vercel.app/about"}
                     className="hover:text-accent dark:text-primary font-bold font-xl"
                   >
                     About me
@@ -60,7 +64,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to={"/book"}
+                    to={"https://the-brown-patience-company.vercel.app/book"}
                     className="hover:text-accent dark:text-primary font-bold font-xl"
                   >
                     Books
@@ -68,7 +72,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to={"/subs"}
+                    to={"https://the-brown-patience-company.vercel.app/subs"}
                     className="hover:text-accent dark:text-primary font-bold font-xl"
                   >
                     Subscription
@@ -76,7 +80,9 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to={"/community"}
+                    to={
+                      "https://the-brown-patience-company.vercel.app/community"
+                    }
                     className="hover:text-accent dark:text-primary font-bold font-xl"
                   >
                     Community

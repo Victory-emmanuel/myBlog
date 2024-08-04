@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import MyContext from "../../context/data/myContext";
+
 function BlogPostCard() {
   const context = useContext(MyContext);
   if (!context) {
@@ -20,7 +21,8 @@ function BlogPostCard() {
               <>
                 {getAllBlog.map((item, index) => {
                   console.log(item);
-                  const { thumbnail, date, title, description, id } = item;
+                  const { thumbnail, date, title, description, id, category } =
+                    item;
                   return (
                     <div
                       key={index}
@@ -37,9 +39,12 @@ function BlogPostCard() {
                         <h3 className="font-bold text-2xl text-accent my-1">
                           {title}
                         </h3>
-                        <h6 className="text-  dark:text-primary  text-secondary  my-4">
+                        <h6 className="line-clamp-3  dark:text-primary  text-secondary  my-4">
                           {description}
                         </h6>
+                        <button className="px-2 py-1 text-base leading-tight font-bold text-lightAccent cursor-pointer bg-red-100 rounded-sm">
+                          {category}
+                        </button>
                       </div>
 
                       <button
