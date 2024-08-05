@@ -31,11 +31,13 @@ const Dashboard = () => {
           </h2>
           <ul className="">
             <li className="font-semibold ">Writer</li>
-            <li className="font-semibold ">123@gmail.com</li>
-            <li className="">
+            <li className="font-semibold ">
+              brownpatience.compellingstories@gmail.com
+            </li>
+            {/* <li className="">
               <span className=" font-semibold mr-2"> Total blogs: </span>
               <span className="">3</span>
-            </li>
+            </li> */}
           </ul>
           <div className="my-6 flex gap-4">
             <Link to="/createBlog">
