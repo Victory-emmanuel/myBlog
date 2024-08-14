@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 import { useContext } from "react";
 import MyContext from "../../context/data/myContext";
@@ -6,7 +7,7 @@ const Comments = ({
   addComment,
   commentText,
   setCommentText,
-  allComment,  
+  allComment,
   fullName,
   setFullName,
 }) => {
@@ -20,7 +21,7 @@ const Comments = ({
           <div className="flex justify-between">
             <div className="mb-4">
               <span className="bg-[#F3F4F6] rounded-md font-semibold cursor-pointer p-2">
-                Write
+                You've got questions? Please ask below.
               </span>
             </div>
             <div className="flex gap-3 text-[#9CA3AF]">

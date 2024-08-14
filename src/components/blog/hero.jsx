@@ -16,10 +16,9 @@ const Hero = () => {
             My Blog
           </h1>
           <p className="sm:text-2xl xx:text-xl xx:w-full ss:w-[75%] mx-auto  text-white xx:py-3  ss:py-6 ">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium
-            atque nesciunt suscipit hic veritatis soluta ipsum tenetur quia
-            magni unde nobis eius quidem rem iusto modi, illum tempora libero.
-            Ut.
+            Here you'll find tips and resources to get you going with your
+            writing. Perhaps the greatest thing you'll find is this reminder:
+            Your message is important, go ahead and share it.
           </p>
           <Link to={"https://wa.me/message/DOCQNYXAEPVDH1"}>
             <button className="w-[11rem] py-5 px-7 mx-auto  bg-white h-[4rem] my-3 flex items-center justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:text-white before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-accent before:to-lightAccent before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#343434]">
