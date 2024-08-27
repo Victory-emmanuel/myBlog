@@ -28,13 +28,9 @@ const Footer = () => {
                   </h3>
                 </Link>
                 <p className="text-md xx:text-base xx:text-center ss:text-center ss:w-[75%] mx-auto pt-6 text-secondary dark:text-primary">
-                  Get your message to the people in need of it. Many gifted
-                  persons have a message for their world, books they've been
-                  planning to write, a community they long to impact, but they
-                  got stuck, couldn't find the time to continue, and began to
-                  wonder if they'd ever share that message. The Brown Patience
-                  Company exist to provide you all the help you need to share
-                  the message you need to share.
+                  Get your message to the people in need of it. The Brown
+                  Patience Company exists to provide you all the help you need
+                  to share the message you need to share.
                 </p>
               </div>
               <ul className="flex flex-col items-center justify-center gap-4 py-6 sm:flex-row sm:gap-8">

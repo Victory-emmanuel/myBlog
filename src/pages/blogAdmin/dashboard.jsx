@@ -34,10 +34,6 @@ const Dashboard = () => {
             <li className="font-semibold ">
               brownpatience.compellingstories@gmail.com
             </li>
-            {/* <li className="">
-              <span className=" font-semibold mr-2"> Total blogs: </span>
-              <span className="">3</span>
-            </li> */}
           </ul>
           <div className="my-6 flex gap-4">
             <Link to="/createBlog">
@@ -123,43 +119,6 @@ const Dashboard = () => {
                     <h1>Not Found</h1>
                   </>
                 )}
-
-                {/* <tbody className="bg-white">
-
-                  {getAllBlog.map((blog, index) => (
-                    <tr className="text-gray-700" key={blog.id}>
-                      <td className="px-4 py-3 text-sm font-semibold border">
-                        {index + 1}
-                      </td>
-                      <td className="px-4 py-3 border">
-                        <div className="flex items-center text-sm">
-                          <div className="relative w-8 h-8 mr-3 rounded-full md:block">
-                            <img
-                              className="object-cover w-10 h-full rounded-sm"
-                              src={blog.thumbnail}
-                              alt=""
-                              loading="lazy"
-                            />
-                            <div
-                              className="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-4 py-3 text-sm border">{blog.title}</td>
-                      <td className="px-4 py-3 text-sm border">
-                        {blog.category}
-                      </td>
-                      <td className="px-4 py-3 text-sm border">{blog.date}</td>
-                      <td className="px-4 py-3 border">
-                        <button className="px-2 py-1 text-base leading-tight font-bold text-red-700 cursor-pointer bg-red-100 rounded-sm">
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody> */}
               </table>
             </div>
           </div>

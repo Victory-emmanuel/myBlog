@@ -16,7 +16,7 @@ const Hero = () => {
             My Blog
           </h1>
           <p className="sm:text-2xl xx:text-xl xx:w-full ss:w-[75%] mx-auto  text-white xx:py-3  ss:py-6 ">
-            Here you'll find tips and resources to get you going with your
+            Here, you'll find tips and resources to get you going with your
             writing. Perhaps the greatest thing you'll find is this reminder:
             Your message is important, go ahead and share it.
           </p>
