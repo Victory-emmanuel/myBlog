@@ -51,6 +51,16 @@ const MyState = ({ children }) => {
       console.log(error);
     }
   };
+  // const deleteBlog = async (id) => {
+  //   try {
+  //     await deleteDoc(doc(fireDb, "blogPost", id));
+  //     setGetAllBlog((prev) => prev.filter((blog) => blog.id !== id)); // Update the state directly
+  //     toast.success("Blog deleted successfully");
+  //   } catch (error) {
+  //     console.log("Error deleting blog:", error);
+  //     toast.error("Failed to delete blog");
+  //   }
+  // };
 
   return (
     <MyContext.Provider

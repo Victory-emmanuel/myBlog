@@ -68,13 +68,13 @@ const Comments = ({
               <>
                 <div key={index} className="">
                   <div className="relative flex gap-4">
-                    <div className="flex flex-col xx:w-[100%] ss:w-[50%]">
+                    <div className="flex flex-col xx:w-[100%] ss:w-[50%] md:w-[70%]">
                       <div className="flex flex-row justify-between">
                         <p className="relative font-semibold text-accent text-lg whitespace-nowrap truncate overflow-hidden">
                           {fullName}
                         </p>
                       </div>
-                      <p className="text-gray-400 mb-6 mt-3 text-sm">{date}</p>
+                      <p className="text-gray-400 mb-6 mt-3 text-xs">{date}</p>
                     </div>
                   </div>
                   <ul className="mt-4 px-6  list-disc text-secondary text-base rounded-lg">

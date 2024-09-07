@@ -6,12 +6,12 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA7Tyj6hw0oBlAxS7euRvgwsRjmfHV1jTg",
-  authDomain: "blog-6ef56.firebaseapp.com",
-  projectId: "blog-6ef56",
-  storageBucket: "blog-6ef56.appspot.com",
-  messagingSenderId: "295348172233",
-  appId: "1:295348172233:web:a28bbd6dc80eb39a06e418",
+  apiKey: "AIzaSyAykNaNoQeXstOUSu9IIDil2TJDx3_bP74",
+  authDomain: "brownpatienceblog.firebaseapp.com",
+  projectId: "brownpatienceblog",
+  storageBucket: "brownpatienceblog.appspot.com",
+  messagingSenderId: "49330796113",
+  appId: "1:49330796113:web:a1bd69d1494c775c7bea70",
 };
 
 // Initialize Firebase
