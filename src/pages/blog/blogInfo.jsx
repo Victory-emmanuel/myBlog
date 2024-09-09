@@ -122,7 +122,7 @@ const BlogInfo = () => {
                   />
                   <div className="ss:p-8 xx:px-4">
                     {/* Title  */}
-                    <h3 className="font-bold text-accent text-2xl my-1">
+                    <h3 className="font-bold text-accent text-2xl mt-2 mb-8 ">
                       {getBlogs?.title}
                     </h3>
                     {/* COntent */}
